@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidKapp</string>
+    <string name="name_input_text">Enter name</string>
+    <string name="submit_btn_text">Submit</string>
 </resources>
