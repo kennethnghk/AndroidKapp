@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 public class ArticleFragment extends Fragment {
 
+    public static final String ARG_POSITION = "ARG_POSITION";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
