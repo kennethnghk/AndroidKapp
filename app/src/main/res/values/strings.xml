@@ -2,6 +2,7 @@
     <string name="app_name">AndroidKapp</string>
     <string name="name_input_text">Enter name</string>
     <string name="submit_btn_text">Submit</string>
+    <string name="go_to_articles">Go to articles</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="article_fragment_title">Title here</string>
