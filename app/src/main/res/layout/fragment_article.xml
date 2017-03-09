@@ -2,12 +2,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/article_fragment"
     tools:context="com.kapp.androidkapp.ArticleFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/articleTitle"
+        android:layout_width="100dp"
         android:layout_height="60dp"
         android:text="@string/article_fragment_title" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginLeft="16dp"
+        android:onClick="onArticleBtnClicked"
+        android:text="Button" />
 
 </FrameLayout>
