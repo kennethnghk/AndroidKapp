@@ -17,6 +17,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        staging {
+            applicationId = "com.kapp.androidkapp.stg"
+            versionName = "1.0-stg"
+        }
+    }
 }
 
 dependencies {
