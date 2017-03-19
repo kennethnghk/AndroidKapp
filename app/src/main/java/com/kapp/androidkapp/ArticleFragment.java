@@ -89,4 +89,11 @@ public class ArticleFragment extends Fragment {
         super.onAttach(context);
         Log.d("FRAG", "onAttach");
     }
+
+    public void updateArticleTitle(String articleTitle) {
+        Log.d("FRAG", articleTitle);
+
+        TextView articleTitleTextView = (TextView) getView().findViewById(R.id.article_fragment_article_title);
+        articleTitleTextView.setText(articleTitle);
+    }
 }
