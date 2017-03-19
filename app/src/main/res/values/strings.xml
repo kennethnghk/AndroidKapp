@@ -6,4 +6,5 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="article_fragment_title">Title here</string>
+    <string name="article_fragment_button_text">Update title</string>
 </resources>

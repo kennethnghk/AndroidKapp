@@ -7,10 +7,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ArticleFragment extends Fragment {
 
+    private OnArticleButtonClickedListener listener;
     String articleTitle;
 
     public static final String ARG_POSITION = "ARG_POSITION";
@@ -23,6 +25,10 @@ public class ArticleFragment extends Fragment {
         return articleFragment;
     }
 
+    public interface OnArticleButtonClickedListener {
+        public void onArticleButtonClicked();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -32,6 +38,18 @@ public class ArticleFragment extends Fragment {
 
         TextView articleTitleTextView = (TextView) view.findViewById(R.id.article_fragment_article_title);
         articleTitleTextView.setText(articleTitle);
+
+        // onClick listener of button in fragment
+        Button button = (Button) view.findViewById(R.id.article_fragment_button);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                onButtonClicked(v);
+            }
+        });
+
         // Inflate the layout for this fragment
         return view;
     }
@@ -88,6 +106,13 @@ public class ArticleFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         Log.d("FRAG", "onAttach");
+
+        if (context instanceof OnArticleButtonClickedListener) {
+            listener = (OnArticleButtonClickedListener) context;
+        } else {
+            throw new ClassCastException(context.toString()
+                    + " must implement ArticleFragment.OnArticleButtonClickedListener");
+        }
     }
 
     public void updateArticleTitle(String articleTitle) {
@@ -95,5 +120,10 @@ public class ArticleFragment extends Fragment {
 
         TextView articleTitleTextView = (TextView) getView().findViewById(R.id.article_fragment_article_title);
         articleTitleTextView.setText(articleTitle);
+    }
+
+    public void onButtonClicked(View v) {
+        Log.d("FRAG", "onArticleButtonClicked at fragment");
+        listener.onArticleButtonClicked();
     }
 }
