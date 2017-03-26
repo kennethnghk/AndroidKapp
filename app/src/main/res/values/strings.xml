@@ -9,4 +9,5 @@
     <string name="article_fragment_button_text">Update title</string>
     <string name="action_settings">action_settings</string>
     <string name="facebook_app_id">1218956148201666</string>
+    <string name="fb_login_protocol_scheme">1218956148201666</string>
 </resources>
