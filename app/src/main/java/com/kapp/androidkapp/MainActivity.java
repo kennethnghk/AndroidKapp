@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -23,6 +24,7 @@ import com.facebook.login.widget.LoginButton;
 public class MainActivity extends AppCompatActivity {
 
     CallbackManager callbackManager;
+    AccessToken accessToken;
 
     Toolbar toolbar;
     public static final String EXTRA_MESSAGE = "com.kapp.androidkapp.MESSAGE";
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onSuccess(LoginResult loginResult) {
                         // App code
                         Log.d("FACEBOOK", "Login success");
+                        accessToken = AccessToken.getCurrentAccessToken();
+                        Log.d("FACEBOOK", "access token "+accessToken.getToken());
                     }
 
                     @Override
@@ -61,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("FACEBOOK", "Login error");
                     }
                 });
+
+        // Trigger FB login
+        // LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
     }
 
     @Override
