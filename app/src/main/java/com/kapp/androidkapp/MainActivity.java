@@ -38,27 +38,36 @@ public class MainActivity extends AppCompatActivity {
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email");
 
+
         callbackManager = CallbackManager.Factory.create();
-        // Callback registration
-        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                // App code
-                Log.d("FACEBOOK", "Login success");
-            }
 
-            @Override
-            public void onCancel() {
-                // App code
-                Log.d("FACEBOOK", "Login cancel");
-            }
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        // App code
+                        Log.d("FACEBOOK", "Login success");
+                    }
 
-            @Override
-            public void onError(FacebookException exception) {
-                // App code
-                Log.d("FACEBOOK", "Login error");
-            }
-        });
+                    @Override
+                    public void onCancel() {
+                        // App code
+                        Log.d("FACEBOOK", "Login cancel");
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        // App code
+                        Log.d("FACEBOOK", "Login error");
+                    }
+                });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("FACEBOOK", "onActivityResult");
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     public void sendMessage(View view) {
